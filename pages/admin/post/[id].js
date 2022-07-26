@@ -16,7 +16,7 @@ export default function Admin({ Component, pageProps }) {
 
   useEffect(() => {
     listAllCategory().then((res) => {
-      setCategories(res);
+      setCategories(res.data);
     });
   }, []);
 

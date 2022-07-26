@@ -1,8 +1,10 @@
 import { GlobeAltIcon, PencilAltIcon, TrashIcon } from "@heroicons/react/solid";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { deletePost, listAllPost } from "../services/post";
 
 export default function ManagePost() {
+  const router = useRouter();
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState([]);
 
@@ -10,6 +12,11 @@ export default function ManagePost() {
     listAllPost(page).then((res) => {
       if (res.data) {
         setPosts(res.data);
+      }
+    })
+    .catch(e => {
+      if (e === 'must_login') {
+        router.push('/login')
       }
     });
   }, []);

@@ -6,9 +6,6 @@ function getHttpClient() {
   const token = getAuthToken();
   let client = axios.create({
     baseURL: BASE_URL,
-    headers: {
-      Authorization: "Bearer " + token,
-    },
   });
 
   if (token) {
@@ -23,6 +20,15 @@ function getHttpClient() {
   return client;
 }
 
+function getHttpClientPublic() {
+  let client = axios.create({
+    baseURL: BASE_URL,
+  });
+
+  return client;
+}
+
 module.exports = {
     getHttpClient,
+    getHttpClientPublic
 }

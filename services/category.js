@@ -1,4 +1,4 @@
-const { getHttpClient: http } = require("./httpClient");
+const { getHttpClient: http, getHttpClientPublic: httpPublic} = require("./httpClient");
 
 async function listAllCategory() {
   return http()
@@ -30,6 +30,22 @@ async function addCategory(input) {
 
 async function listAllCategoryPage(page) {
   return http()
+    .get(`/category/`, { params: { page: page } })
+    .then((res) => {
+      console.log("listAllCategoryPage", res);
+      if (res.status !== 200) {
+        return { message: res.data.message };
+      }
+
+      return res.data;
+    })
+    .catch((e) => {
+      console.log("Adios error nih", e);
+    });
+}
+
+async function listAllCategoryPagePublic(page) {
+  return httpPublic()
     .get(`/category/`, { params: { page: page } })
     .then((res) => {
       console.log("listAllCategoryPage", res);
@@ -86,5 +102,6 @@ module.exports = {
   listAllCategoryPage,
   deleteCategory,
   getCategoryDetails,
-  updateCategory
+  updateCategory,
+  listAllCategoryPagePublic
 };

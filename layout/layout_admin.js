@@ -86,8 +86,8 @@ export default function LayoutAdmin({ children }) {
         <div className="navbar-end">
           <div className="dropdown dropdown-end">
             <label tabIndex={4} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
+              <div className="w-10 rounded-full bg-white">
+                <img src="/images/avatar.png" />
               </div>
             </label>
             <ul

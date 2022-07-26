@@ -24,12 +24,12 @@ export default function LayoutPublic({ children }) {
               <MenuIcon className="h-5 w-5 group-hover:text-teal-200" />
             </label>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">SimpleBlog</a>
+          <a className="btn btn-ghost normal-case text-xl">Welcome to SimpleBlog</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a href="/admin">Home</a>
+              <a href="/">Home</a>
             </li>
             <li tabIndex={2}>
               <a>
